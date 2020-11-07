@@ -1,0 +1,22 @@
+Traceback (most recent call last):
+  File "get_tweets.py", line 1, in <module>
+    import twint
+  File "/home/bellis/.local/lib/python3.8/site-packages/twint/__init__.py", line 14, in <module>
+    from . import run
+  File "/home/bellis/.local/lib/python3.8/site-packages/twint/run.py", line 4, in <module>
+    from . import datelock, feed, get, output, verbose, storage
+  File "/home/bellis/.local/lib/python3.8/site-packages/twint/get.py", line 16, in <module>
+    from .output import Tweets, Users
+  File "/home/bellis/.local/lib/python3.8/site-packages/twint/output.py", line 6, in <module>
+    from .storage import db, elasticsearch, write, panda
+  File "/home/bellis/.local/lib/python3.8/site-packages/twint/storage/panda.py", line 1, in <module>
+    import datetime, pandas as pd, warnings
+  File "/home/bellis/.local/lib/python3.8/site-packages/pandas/__init__.py", line 16, in <module>
+    raise ImportError(
+ImportError: Unable to import required dependencies:
+numpy: No module named 'numpy'
+dateutil: No module named 'dateutil'
+Traceback (most recent call last):
+  File "get_tweet_sentiment.py", line 33, in <module>
+    print("@" + tweet['username'] + ": " + tweet['tweet'])
+UnicodeEncodeError: 'ascii' codec can't encode characters in position 32-35: ordinal not in range(128)

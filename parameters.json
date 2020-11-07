@@ -1,0 +1,15 @@
+{
+    "keywords": [
+        {
+            "word": "trump",
+            "weight": 1,
+            "limit": 5000
+        },
+        {
+            "word": "biden",
+            "weight": -1,
+            "limit": 5000
+        }
+    ],
+    "featured_char_limit": 30
+}
