@@ -20,6 +20,6 @@ do
     echo "$(date): Published Data!"
     npm run deploy
     echo "$(date): Built Website!"
-    echo "$(date): Sleeping for 5 minutes!"
-    sleep 5m
+    #echo "$(date): Sleeping for 5 minutes!"
+    #sleep 5m
 done
