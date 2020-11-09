@@ -6,6 +6,8 @@ do
     timestamp=$(python3 get_tweet_sentiment.py)
     date + "%R: Calculated Tweets!"
     cd ~/trump-sentiment
+    git pull
+    git commit -m "$timestamp pulled latest site changes"
     cp ~/trump-sentiment-calculator/output/results.log src/results.log
     cp ~/trump-sentiment-calculator/output/trump.output src/trump.output
     cp ~/trump-sentiment-calculator/output/biden.output src/biden.output
