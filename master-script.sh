@@ -1,12 +1,12 @@
 #!/bin/sh
 while :
 do
-    date + "%R: Process Started!"
+    echo "$(date): Process Started!"
     cd ~/trump-sentiment-calculator
-    python3 get_tweets.py
-    date + "%R: Got tweets!"
-    timestamp=$(python3 get_tweet_sentiment.py)
-    date + "%R: Calculated Tweets!"
+    python3.7 get_tweets.py
+    echo "$(date): Got tweets!"
+    timestamp=$(python3.7 get_tweet_sentiment.py)
+    echo "$(date): Calculated Tweets!"
     cd ~/trump-sentiment
     git pull
     git commit -m "$timestamp pulled latest site changes"
@@ -17,9 +17,9 @@ do
     git add src/results.log src/trump.output src/biden.output src/data.json
     git commit -m "$timestamp data update"
     git push
-    date + "%R: Published Data!"
+    echo "$(date): Published Data!"
     npm run deploy
-    date + "%R: Built Website!"
-    date + "%R: Sleeping for 5 minutes!"
+    echo "$(date): Built Website!"
+    echo "$(date): Sleeping for 5 minutes!"
     sleep 5m
 done
