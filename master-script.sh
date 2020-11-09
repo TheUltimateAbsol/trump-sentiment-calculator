@@ -1,4 +1,5 @@
 #!/bin/sh
+while :
 do
     date + "%R: Process Started!"
     cd ~/trump-sentiment-calculator
