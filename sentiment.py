@@ -68,7 +68,7 @@ def sentiment_scores_of_sents(sents):
     x = np.asarray(
         pad_sents(word_indices, PADDING_INDEX), 
         dtype = np.int32
-Fi    )
+    )
     scores = MODEL._p_y_given_x(x)
 
     return scores[:, 1] # return `positiveness`
