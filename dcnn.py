@@ -26,8 +26,8 @@ class WordEmbeddingLayer(object):
            the input sentences consiting of word indices (number of instances, sentence word number)
         """
         sent_matrices = np.array(
-            map(lambda sent: self.embeddings[sent], 
-                x)
+            list(map(lambda sent: self.embeddings[sent], 
+                x))
         )
         
         # equivalent to dimshuffle(0, 'x', 2, 1) in Theano
