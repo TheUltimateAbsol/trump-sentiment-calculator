@@ -230,7 +230,7 @@ def main(batch_size = 3):
         # shuffle data
         random.shuffle(train_trees)
         # for each mini-batch in 
-        for i in xrange(batch_number):
+        for i in range(batch_number):
             training_iter += 1
             
             batch_trees = train_trees[i*batch_size:(i+1)*batch_size]

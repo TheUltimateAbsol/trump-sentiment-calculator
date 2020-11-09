@@ -314,7 +314,7 @@ def train_and_test(args, print_config):
     dropout_layers = [layer1]
     layers = [layer1]
     
-    for i in xrange(args.conv_layer_n):
+    for i in range(args.conv_layer_n):
         fold_flag = args.fold_flags[i]
         
         # for the dropout layer
@@ -671,12 +671,12 @@ def train_and_test(args, print_config):
     nnls = []
     L2_sqrs = []
     
-    activation_means = [[] for i in xrange(args.conv_layer_n)]
-    activation_stds = [[] for i in xrange(args.conv_layer_n)]
-    weight_grad_means = [[] for i in xrange(args.conv_layer_n)]
-    weight_grad_stds = [[] for i in xrange(args.conv_layer_n)]
-    activation_hist_data = [[] for i in xrange(args.conv_layer_n)]
-    weight_grad_hist_data = [[] for i in xrange(args.conv_layer_n)]
+    activation_means = [[] for i in range(args.conv_layer_n)]
+    activation_stds = [[] for i in range(args.conv_layer_n)]
+    weight_grad_means = [[] for i in range(args.conv_layer_n)]
+    weight_grad_stds = [[] for i in range(args.conv_layer_n)]
+    activation_hist_data = [[] for i in range(args.conv_layer_n)]
+    weight_grad_hist_data = [[] for i in range(args.conv_layer_n)]
 
     train_errors = []
     dev_errors = []
@@ -699,7 +699,7 @@ def train_and_test(args, print_config):
 
             train_set_x.set_value(train_set_x_data[permutation])
             train_set_y.set_value(train_set_y_data[permutation])
-            for minibatch_index in xrange(n_train_batches):
+            for minibatch_index in range(n_train_batches):
                 if epoch >= (args.embedding_learning_delay_epochs + 1):
                     train_cost = train_model(minibatch_index)
                 else:
@@ -711,7 +711,7 @@ def train_and_test(args, print_config):
                 if (iter + 1) % validation_frequency == 0:
 
                     # train_error_val = np.mean([train_error(i)
-                    #                            for i in xrange(n_train_batches)])
+                    #                            for i in range(n_train_batches)])
                     dev_error_val = dev_error()
                     
                     # print "At epoch %d and minibatch %d. \nTrain error %.2f%%\nDev error %.2f%%\n" %(

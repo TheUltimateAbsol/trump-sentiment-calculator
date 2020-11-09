@@ -153,7 +153,7 @@ def train_and_test(learning_rate, batch_size,
     while (epoch < n_epochs) and (not done_looping):
         epoch += 1
         print "At epoch {epoch}".format(epoch = epoch)
-        for minibatch_index in xrange(n_train_batches):
+        for minibatch_index in range(n_train_batches):
             train_err = train_model(minibatch_index)
 
             # iteration number
@@ -162,7 +162,7 @@ def train_and_test(learning_rate, batch_size,
             if (iter + 1) % validation_frequency == 0:
                 # compute zero-one loss on validation set
                 validation_losses = [validate_model(i)
-                                     for i in xrange(n_valid_batches)]
+                                     for i in range(n_valid_batches)]
                 this_validation_loss = np.mean(validation_losses)
 
                 print(
@@ -186,7 +186,7 @@ def train_and_test(learning_rate, batch_size,
                     # test it on the test set
 
                     test_losses = [test_model(i)
-                                   for i in xrange(n_test_batches)]
+                                   for i in range(n_test_batches)]
                     test_score = np.mean(test_losses)
 
                     print(

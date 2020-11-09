@@ -151,7 +151,7 @@ def get_possibility_n():
                 else:
                     possibility_n *= (len(candidates) ** dup_times)
                 # this might be unnecessary
-                # params[key] = tuple([random.choice(CONSTS[key]['values']) for _ in xrange(dup_times)])
+                # params[key] = tuple([random.choice(CONSTS[key]['values']) for _ in range(dup_times)])
         else:
             params[key] = random.choice(CONSTS[key]['values'])
             possibility_n *= len(candidates)
@@ -199,7 +199,7 @@ def sample_params(n = None, semi_random_params_key = 'conv_layer_n'):
                     params[key] = tuple([value]) * dup_times
                 else:
                     if candidates:
-                        params[key] = tuple([random.choice(candidates) for _ in xrange(dup_times)])
+                        params[key] = tuple([random.choice(candidates) for _ in range(dup_times)])
                     else:
                         params[key] = tuple(range(dup_times)) # fake values to be replaced
             else:

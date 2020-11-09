@@ -4,7 +4,9 @@ Sentiment prediction module
 import nltk
 import numpy as np
 
-from cPickle import load
+from pickle import load
+
+nltk.download('punkt')
 
 def get_word_index_array(words, word2index):
     u"""
@@ -43,7 +45,7 @@ def pad_sents(sents, padding_token_index):
     return padded_sents
 
 
-WORD2INDEX = load(open("data/twitter.pkl"))[3]
+WORD2INDEX = load(open("data/twitter.pkl", 'rb'), encoding='latin1')[3]
 PADDING_INDEX = WORD2INDEX[u"<PADDING>"]
 
 from param_util import load_dcnn_model_params
@@ -67,6 +69,8 @@ def sentiment_scores_of_sents(sents):
         pad_sents(word_indices, PADDING_INDEX), 
         dtype = np.int32
     )
+
+    print(x)
 
     scores = MODEL._p_y_given_x(x)
 

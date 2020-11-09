@@ -25,7 +25,7 @@ def load_dcnn_model_params(path, param_str = None):
         param_str = os.path.basename(path).split('.')[0]
     p = parse_param_string(param_str)
     
-    stuff = load(open(path, "r"))
+    stuff = load(open(path, "rb"), encoding='latin1')
     
     for name, value in stuff:
         if not hasattr(p, name):

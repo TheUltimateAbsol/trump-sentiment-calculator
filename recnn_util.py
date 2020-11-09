@@ -242,7 +242,7 @@ def load_data(path = "data/stanford_sentiment_treebank.pkl"):
     >>> data1 == data2
     True
     """
-    return pickle.load(open(path, "r"))
+    return pickle.load(open(path, "rb"), encoding='latin1')
 
 if __name__ == "__main__":
     dump_data("data/stanfordSentimentTreebank/trees/train.txt", 

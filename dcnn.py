@@ -118,7 +118,7 @@ class DCNN(object):
         self.e_layer = WordEmbeddingLayer(embeddings = params.embeddings)
         self.c_layers = []
         
-        for i in xrange(params.conv_layer_n):
+        for i in range(params.conv_layer_n):
             self.c_layers.append(ConvFoldingPoolLayer(params.ks[i],
                                                       params.fold[i],
                                                       W = params.W[i],

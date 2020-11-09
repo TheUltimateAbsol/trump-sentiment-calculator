@@ -20,11 +20,11 @@ def conv2d(input_feature_map, filters, mode = "full"):
                                    input_w + filter_w - 1, 
                                    input_h + filter_h - 1))
 
-    for i in xrange(batch_size):
+    for i in range(batch_size):
         # for the ith instance
-        for k in xrange(output_feature_n):
+        for k in range(output_feature_n):
             # for the kth feature map in the output
-            for l in xrange(input_feature_n1):
+            for l in range(input_feature_n1):
                 # for the lth feature map in the input
                 output_feature_map[i, k] += convolve2d(input_feature_map[i, l], 
                                                        filters[k, l], 

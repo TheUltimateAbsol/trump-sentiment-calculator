@@ -32,7 +32,7 @@ update = theano.function(inputs = [],
                          updates = updates)
 
 
-for i in xrange(n_iter):
+for i in range(n_iter):
     update()
 
 
@@ -66,7 +66,7 @@ egs = [np.zeros(shape, dtype = theano.config.floatX)
 exs = [np.zeros(shape, dtype = theano.config.floatX)
        for shape in param_shapes]
 
-for i in xrange(n_iter):
+for i in range(n_iter):
     np_params, egs, exs = numpy_update(np_params, egs, exs)
 
 

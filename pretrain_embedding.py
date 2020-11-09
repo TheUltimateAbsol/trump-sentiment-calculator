@@ -8,7 +8,7 @@ def main(dim, src_path, target_path):
     and output the embedding matrix into `target_path`
     """
     
-    train, dev, test, word2index, index2word = pickle.load(open(src_path, 'r'))
+    train, dev, test, word2index, index2word = pickle.load(open(src_path, 'rb'))
     
     #get the training sentences
     sents = [
