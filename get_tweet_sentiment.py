@@ -12,11 +12,14 @@ score = 0.5
 num = 0
 featured = []
 
+sttime = ""
+
 #Read each output line in at a time as json
 for keyword in parameters['keywords']:
     multiplier = keyword['weight']
     file1 = open(OUTPUT_FOLDER_NAME + '/' + keyword['word'] + '.output', 'r')
     lines = file1.readlines() 
+    sttime =  json.loads(lines[0])['created_at']
     for line in lines:
         data = json.loads(line)
         msg = data['tweet']
@@ -37,10 +40,10 @@ for keyword in parameters['keywords']:
 score = score / num
 sentiment = round(score * 100, 1)
 featured_out = []
-print("Sentiment: " + str(sentiment) + "%")
-print("Featured Tweets")
+#print("Sentiment: " + str(sentiment) + "%")
+#print("Featured Tweets")
 for tweet in featured:
-    print("@" + tweet['username'] + ": " + tweet['tweet'])
+    #print("@" + tweet['username'] + ": " + tweet['tweet'])
     featured_out.append({"username": tweet['username'] , "tweet": tweet['tweet']})
 
 
@@ -53,8 +56,8 @@ data = {
 with open(OUTPUT_FOLDER_NAME + "/" + 'data.json', 'w') as outfile:
     json.dump(data, outfile)
 
-ts = time.time()
-sttime = datetime.datetime.fromtimestamp(ts).strftime('%Y%m%d_%H:%M:%S')
 with open(OUTPUT_FOLDER_NAME + "/" + "results.log", "a") as file2:  # append mode 
-    file2.write(sttime + " " + str(sentiment) + "\n") 
+    file2.write(sttime + ", " + str(sentiment) + "\n") 
     file2.close() 
+
+print(sttime)
