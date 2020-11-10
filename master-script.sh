@@ -7,12 +7,12 @@ do
     echo "$(date): Updated Caculator Repo!"
     python3.7 get_tweets.py
     echo "$(date): Got tweets!"
+    timestamp=$(python3.7 get_tweet_sentiment.py)
+    echo "$(date): Calculated Tweets!"
     git add *
     git commit -m "Regular Data Push"
     git push
     echo "$(date): Published Fetched Tweets!"
-    timestamp=$(python3.7 get_tweet_sentiment.py)
-    echo "$(date): Calculated Tweets!"
     cd ~/trump-sentiment
     git pull
     git commit -m "$timestamp pulled latest site changes"
