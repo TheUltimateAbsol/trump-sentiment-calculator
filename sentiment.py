@@ -4,9 +4,10 @@ Sentiment prediction module
 import nltk
 import numpy as np
 
-from pickle import load
+from _pickle import load
 
-nltk.download('punkt')
+#uncomment this for first time use
+#nltk.download('punkt')
 
 def get_word_index_array(words, word2index):
     u"""

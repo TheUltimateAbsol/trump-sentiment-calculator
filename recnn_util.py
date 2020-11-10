@@ -11,7 +11,8 @@ from tree_stat import token_freq
 import codecs 
 
 try:
-    import cPickle as pickle
+    import _pickle as pickle
+    #print("pickle imported")
 except:
     import pickle
 

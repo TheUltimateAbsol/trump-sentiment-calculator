@@ -4,9 +4,11 @@ import os, urllib, gzip, cPickle, theano
 import re
 import numpy as np
 try:
-    import cPickle as pickle
+    import _pickle as pickle
+    #print("cpickle")
 except ImportError:
     import pickle
+    #print("not cpickle")
 
 import pdb
 from codecs import open

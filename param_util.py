@@ -3,7 +3,8 @@ Utility for model parameter
 """
 import os
 try:
-    from cPickle import load
+    from _pickle import load
+    #print("cpickle")
 except ImportError:
     from pickle import load
 

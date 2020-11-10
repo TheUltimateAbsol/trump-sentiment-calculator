@@ -1,6 +1,6 @@
 from gensim.models.word2vec import Word2Vec
 import numpy as np
-import pickle
+import _pickle
 
 def main(dim, src_path, target_path):
     """
