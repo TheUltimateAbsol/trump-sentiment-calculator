@@ -8,11 +8,10 @@ with open('parameters.json') as f:
   parameters = json.load(f)
 
 featured_char_limit = parameters['featured_char_limit']
-score = 0.5
-num = 0
 featured = []
 
 sttime = ""
+averages = []
 
 #Read each output line in at a time as json
 for keyword in parameters['keywords']:
@@ -20,6 +19,11 @@ for keyword in parameters['keywords']:
     file1 = open(OUTPUT_FOLDER_NAME + '/' + keyword['word'] + '.output', 'r')
     lines = file1.readlines() 
     sttime =  json.loads(lines[0])['created_at']
+    #print(keyword['word'])
+    all_likes = 0
+    all_retweets = 0
+    score = 0
+    num = 0
     for line in lines:
         data = json.loads(line)
         msg = data['tweet']
@@ -36,8 +40,17 @@ for keyword in parameters['keywords']:
         #Save featured tweets
         if len(msg) <= featured_char_limit and (not ("@" in msg)) and (not ("https://" in msg)):
             featured.append(data)
+        all_likes += likes
+        all_retweets += retweets
+    score = score / num
+    averages.append(score)
+    # print("likes: ", all_likes, ", retweets", all_retweets)
 
-score = score / num
+
+total = 0
+for a in averages:
+    total += a
+score = total / len(averages)
 sentiment = round(score * 100, 1)
 featured_out = []
 #print("Sentiment: " + str(sentiment) + "%")

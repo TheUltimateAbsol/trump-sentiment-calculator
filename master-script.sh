@@ -3,8 +3,14 @@ while :
 do
     echo "$(date): Process Started!"
     cd ~/trump-sentiment-calculator
+    git pull
+    echo "$(date): Updated Caculator Repo!"
     python3.7 get_tweets.py
     echo "$(date): Got tweets!"
+    git add *
+    git commit -m "Regular Data Push"
+    git push
+    echo "$(date): Published Fetched Tweets!"
     timestamp=$(python3.7 get_tweet_sentiment.py)
     echo "$(date): Calculated Tweets!"
     cd ~/trump-sentiment

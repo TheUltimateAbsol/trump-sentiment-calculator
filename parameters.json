@@ -11,5 +11,6 @@
             "limit": 5000
         }
     ],
-    "featured_char_limit": 30
+    "featured_char_limit": 30,
+    "num_minutes": 2
 }
