@@ -12,6 +12,9 @@ do
     git add *
     git commit -m "Regular Data Push"
     git push
+    git fetch --depth=1
+    git reflog expire --expire-unreachable=now --all
+    git gc --aggressive --prune=all
     echo "$(date): Published Fetched Tweets!"
     cd ~/trump-sentiment
     git pull
@@ -28,4 +31,7 @@ do
     echo "$(date): Built Website!"
     #echo "$(date): Sleeping for 5 minutes!"
     #sleep 5m
+    git fetch --depth=1
+    git reflog expire --expire-unreachable=now --all
+    git gc --aggressive --prune=all
 done
